@@ -1,0 +1,19 @@
+#root-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    max-width: 768px;
+    height: 100svh;
+    
+}
+
+#game-window {
+    flex-grow: 1;
+    background-color: $space-blue;
+    border: 1vw solid $window-light-blue;
+    overflow: auto;
+}
+
+#window-border {
+    background-color: $window-blue;
+}

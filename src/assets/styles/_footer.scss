@@ -1,0 +1,51 @@
+#game-footer {
+    margin-top: auto;
+    padding: 1vh 0;
+    background-color: $window-blue;
+}
+
+#game-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    * {
+        text-decoration: none;
+    }
+}
+
+.footer-button {
+    background-color: $window-light-blue;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 10vw;
+    max-height: 80px;
+    max-width: 200px;
+}
+
+.button-text {
+    margin-left: 8px;
+
+    @media ($breakMobile) {
+        font-size: 5vw;
+    }
+
+    @media ($breakDesktop) {
+        font-size: 2rem;
+    }
+
+}
+.game-menu * {
+    text-decoration: none;
+}
+
+.button-icon {
+    @media ($breakMobile) {
+        width: 5vw;
+    }
+    @media ($breakDesktop) {
+        width: 2rem;
+    }
+}

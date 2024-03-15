@@ -1,0 +1,23 @@
+#engine-view-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.engine-view-slot {
+    background-color: $window-light-blue;
+    padding: 0.5vh 1vh ;
+    margin-bottom: 1vh;
+    border: 1px solid black;
+}
+
+#money-view-p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#money-symbol {
+    max-width: 12px;
+    margin-right: 1vw;
+}

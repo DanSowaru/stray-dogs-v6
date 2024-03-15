@@ -1,0 +1,58 @@
+.dog-chat-block {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 2vw;
+    background-color: rgb(194, 220, 255);
+    margin: 2px 0;
+}
+
+.chat-block-portrait * {
+    max-width: 64px;
+    border-radius: 100%;
+}
+
+.chat-block-preview {
+    margin-left: 2vw;
+    flex-grow: 1;
+}
+
+.chat-block-dog-name {
+}
+
+.chat-block-paragraph-preview {
+}
+
+.unread-messages-counter-container {
+    display: flex;
+    justify-content: center;
+    text-align: end;
+    border: 2px solid red;
+    border-radius: 100%;
+    background-color: red;
+
+    @media ($breakMobile) {
+        width: 8vw;
+        height: 8vw;
+    }
+
+    @media ($breakDesktop) {
+        height: 44px;
+        width: 44px;
+    }
+}
+
+.unread-messages-counter {
+    color: white;
+    padding: 1vw 2vw;
+    width: 8vw;
+    margin: auto;
+    text-align: center;
+
+    @media ($breakMobile) {
+        font-size: 4vw;
+    }
+
+    @media ($breakDesktop) {
+        font-size: 1.5rem;
+    }  
+}

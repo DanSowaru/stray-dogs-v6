@@ -1,0 +1,27 @@
+@import './variables.scss';
+
+#window-header {
+    background-color: $window-light-blue;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#window-header-title {
+    display: inline;
+    margin: 5px;
+    margin-left: 2vw;
+}
+
+#window-header-buttons {
+    display: inline;
+    margin: 0 1vw;
+}
+
+.header-button {
+    max-width: 1.5rem;
+    border: 2px solid;
+    margin: 5px;
+}
