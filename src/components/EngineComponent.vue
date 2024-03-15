@@ -16,7 +16,7 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 
 import DateComponent from '@/components/DateComponent.vue'
 
