@@ -306,15 +306,18 @@ To fix that, you will need to configure your production server to fallback to in
         createApp(App).use(createPinia()).use(router).mount('#app')
 
 - create a **store** (folder) to hold the states (good practice is name each store "conceptStore", like userStore, listStore, commentStore, etc).
-- use the `defineStore`function from Pinia to create a store, hold it inside a const then export for the app to use globally:
+
+### Using Pinia Stores
+
+- use the `defineStore`function from Pinia to create a store in the Store folder, hold it inside a const then export for the app to use globally:
 
         import { defineStore } from 'pinia'
 
-                export const useHiredDogsStore = defineStore('hiredDogsStore', {
-                        state: () => ({
-                                // the states used;
-                        })
-                }
+        export const useHiredDogsStore = defineStore('hiredDogsStore', {
+                state: () => ({
+                        // the states used;
+                })
+        }
  
  - import and use in the component
         
@@ -323,10 +326,27 @@ To fix that, you will need to configure your production server to fallback to in
         data () {
                 return {
                         hiredDogsStore: useHiredDogsStore(),
+                }
+        }
 
-- Using a **getter**:
+- Returning value with **getters**:
 
-        
+        getters: {
+          unreadDogs () : number {
+            // "this" refers to the STATE object above
+            return this.hiredDogs.reduce((counter, dog) => {
+              return dog.dogUnreadMessages ? counter++ : counter
+            }, 0)
+          }
+        },
+
+- Manipulating the data with **actions**:
+
+        actions: {
+          methodName(param) {
+            this.hiredDogs.push(param)
+          }
+        }
 
 
 

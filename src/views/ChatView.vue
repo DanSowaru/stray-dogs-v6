@@ -81,23 +81,23 @@ export default {
     // ///////////////////////////////////////////////////////////////
 
     isExistingDog (dogName) {
-      let newDogResult = this.hiredDogList.some(chatbox => chatbox.dogName === dogName)
+      let newDogResult = this.hiredDogsStore.hiredDogs.some(chatbox => chatbox.dogName === dogName)
       return newDogResult
     },
 
     generateNewId () {
       this.dogId++
-      const isIdAlreadyUsed = this.hiredDogList.some(chatbox => chatbox.dogId === this.dogId)
+      const isIdAlreadyUsed = this.hiredDogsStore.hiredDogs.some(chatbox => chatbox.dogId === this.dogId)
       return isIdAlreadyUsed ? this.generateNewId() : this.dogId
     },
 
     updateChatlog (dogObject) {
       if (!this.isExistingDog(dogObject.dogName)) {
         let newId = this.generateNewId()
-        dogObject.dogId = newId
-        this.hiredDogList.push(dogObject)
+        dogObject.dogId = +newId // parsing into Number
+        this.hiredDogsStore.hiredDogs.push(dogObject)
       } else {
-        this.hiredDogList.forEach(chatbox => {
+        this.hiredDogsStore.hiredDogs.forEach(chatbox => {
           if (chatbox.dogName === dogObject.dogName) {
             // TODO push and update also dogMesages
             chatbox.dogLastMessage = dogObject.dogLastMessage
@@ -138,7 +138,7 @@ export default {
     },
 
     testLog () {
-      console.log(this.hiredDogList)
+      console.log(this.hiredDogsStore.hiredDogs)
     }
   }
 }
