@@ -295,3 +295,38 @@ If you are using Vue Router in history mode, a simple static file server will fa
 
 To fix that, you will need to configure your production server to fallback to index.html for any requests that do not match a static file. The [Vue Router docs](https://router.vuejs.org/guide/essentials/history-mode.html) provide configuration instructions for common server setups.
 
+## Pinia
+
+### Install
+
+- `npm install pinia`
+- register as a middleware:
+
+        import { createPinia } from 'pinia'
+        createApp(App).use(createPinia()).use(router).mount('#app')
+
+- create a **store** (folder) to hold the states (good practice is name each store "conceptStore", like userStore, listStore, commentStore, etc).
+- use the `defineStore`function from Pinia to create a store, hold it inside a const then export for the app to use globally:
+
+        import { defineStore } from 'pinia'
+
+                export const useHiredDogsStore = defineStore('hiredDogsStore', {
+                        state: () => ({
+                                // the states used;
+                        })
+                }
+ 
+ - import and use in the component
+        
+        import { useHiredDogsStore } from '@/stores/HiredDogsStore'
+
+        data () {
+                return {
+                        hiredDogsStore: useHiredDogsStore(),
+
+- Using a **getter**:
+
+        
+
+
+

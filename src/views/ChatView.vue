@@ -4,7 +4,7 @@
 
     <ChatblockComponent
       v-show="!openedActiveChat"
-      v-for="dogListUnit in hiredDogList"
+      v-for="dogListUnit in hiredDogsStore.hiredDogs"
       :key="dogListUnit.dogId"
       :chatPreviewProp="dogListUnit"
       @click="openActiveChatComponent(dogListUnit)"
@@ -28,8 +28,8 @@
 import ChatblockComponent from '@/components/ChatblockComponent.vue'
 import ActiveChatComponent from '@/components/ActiveChatComponent.vue'
 
-import { Dog } from '@/assets/gamefiles/Dog.js'
-import { CHARACTER_LIST } from '@/assets/gamefiles/DOG_LIST'
+import { Dog } from '@/assets/gamefiles/Dog.ts'
+import { useHiredDogsStore } from '@/stores/HiredDogsStore'
 
 export default {
   name: 'ChatView',
@@ -41,7 +41,7 @@ export default {
   data () {
     return {
 
-      hiredDogList: CHARACTER_LIST,
+      hiredDogsStore: useHiredDogsStore(),
 
       openedActiveChat: false,
 
