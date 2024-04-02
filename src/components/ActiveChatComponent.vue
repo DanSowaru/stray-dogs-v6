@@ -88,6 +88,7 @@ export default {
 
     closeActiveChat () {
       this.$emit('close-active-chat', false)
+      // TODO: import store to zero the unreadMessages again
     }
 
     // TODO: DO auto scroll to the bottom of the chat feed
