@@ -20,7 +20,7 @@
     <button @click="testUpdate">update hiredDogList</button>
     <button @click="testUpdate2">update hiredDogList message</button>
     <button @click="testLog">console.log()</button>
-    <button @click ="hiredDogsStore.testInteraction">TEST STORE INTERACTION</button>
+
   </section>
 </template>
 

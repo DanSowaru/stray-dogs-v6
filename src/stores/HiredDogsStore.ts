@@ -11,11 +11,16 @@ export const useHiredDogsStore = defineStore('hiredDogsStore', {
   }),
 
   getters: {
+
     unreadDogs () : number {
       // "this" refers to the STATE object above
       return this.hiredDogs.reduce((counter, dog) => {
-        return dog.dogUnreadMessages ? counter++ : counter
+        return dog.dogUnreadMessages ? ++counter : counter
       }, 0)
+    },
+
+    getHiredDogs () : Dog[] {
+      return this.hiredDogs
     }
   },
 
@@ -32,19 +37,9 @@ export const useHiredDogsStore = defineStore('hiredDogsStore', {
       return newDogResult
     },
 
-    // TODO: Use pre filled IDs in each Dog Objects and get rid of Id Generators
-    generateNewId () : string {
-      this.dogId++
-      const testedId = this.dogId.toString()
-      // eslint-disable-next-line eqeqeq
-      const isIdAlreadyUsed = this.hiredDogs.some(dogChat => dogChat.dogId == testedId)
-      return isIdAlreadyUsed ? this.generateNewId() : testedId
-    },
-
     updateChatlog (dogObject : Dog, newMessage: string) {
       dogObject.newMessage(newMessage)
       if (!this.isExistingDog(dogObject.dogName)) {
-        dogObject.dogId = this.generateNewId()
         this.hiredDogs.push(dogObject)
       }
     },

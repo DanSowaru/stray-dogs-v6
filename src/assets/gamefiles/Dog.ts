@@ -24,7 +24,7 @@ export class Dog {
   dogUnreadMessages = 0; // FINAL
 
   constructor (
-    dogId?: string,
+    dogId: string,
     dogName = 'Unknown Dog',
     dogPortrait = 'unknown',
     dogPersonalityGood = 0,
@@ -38,6 +38,7 @@ export class Dog {
     dogSkillCharisma = 0,
     dogSkillLeadership = 0
   ) {
+    this.dogId = dogId
     this.dogName = dogName
     this.dogPortrait = dogPortrait
     this.dogPersonality = {

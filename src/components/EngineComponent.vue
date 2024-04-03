@@ -48,7 +48,6 @@ export default defineComponent(
       },
       getUnreadDogs (): number | string {
         try {
-          console.log(this.hiredDogs.unreadDogs)
           return this.hiredDogs.unreadDogs
         } catch (error) {
           return 'error'
