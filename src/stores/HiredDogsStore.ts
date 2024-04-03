@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import { Dog } from '@/assets/gamefiles/Dog'
-import { hiredDogList } from '@/assets/gamefiles/DOG_LIST'
+import { Dog } from '@/data/Dog'
+import { hiredDogList } from '@/data/DOG_LIST'
 
 export const useHiredDogsStore = defineStore('hiredDogsStore', {
   state: () => ({
