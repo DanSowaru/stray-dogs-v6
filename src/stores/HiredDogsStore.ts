@@ -5,8 +5,7 @@ import { hiredDogList } from '@/data/DOG_LIST'
 export const useHiredDogsStore = defineStore('hiredDogsStore', {
   state: () => ({
 
-    hiredDogs: hiredDogList,
-    dogId: 0
+    hiredDogs: hiredDogList
 
   }),
 
@@ -25,6 +24,12 @@ export const useHiredDogsStore = defineStore('hiredDogsStore', {
   },
 
   actions: {
+
+    async getDBHiredDogs () {
+      const res = await fetch('http://localhost:3000/hiredDogs')
+      const data = await res.json()
+      this.hiredDogs = data
+    },
 
     // ///////////////////////////////////////////////////////////////
     // /////////////////                         /////////////////////

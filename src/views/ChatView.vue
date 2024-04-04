@@ -20,6 +20,7 @@
     <button @click="testUpdate">update hiredDogList</button>
     <button @click="testUpdate2">update hiredDogList message</button>
     <button @click="testLog">console.log()</button>
+    <button @click="testGetDogs">Fetch Dogs</button>
 
   </section>
 </template>
@@ -109,6 +110,10 @@ export default {
 
     testLog () {
       console.log(this.hiredDogsStore.hiredDogs)
+    },
+
+    testGetDogs () {
+      this.hiredDogsStore.getDBHiredDogs()
     }
   }
 }
