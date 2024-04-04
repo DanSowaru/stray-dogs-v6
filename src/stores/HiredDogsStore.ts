@@ -42,25 +42,13 @@ export const useHiredDogsStore = defineStore('hiredDogsStore', {
       if (!this.isExistingDog(dogObject.dogName)) {
         this.hiredDogs.push(dogObject)
       }
-    },
+    }
 
     //             ///////////////////////////////////////////////////
     //             /////////////////                         /////////
     //             /////////////////        TEST AREA        /////////
     //             /////////////////                         /////////
     //             ///////////////////////////////////////////////////
-
-    testUpdate (receivedDog: Dog) {
-      this.updateChatlog(receivedDog, 'Is this thing turned on? lorem ipsum In this revised example, the ChildComponent emits an update-message event with the new message, and the ParentComponent listens for this event and updates its message data property accordingly. This is the recommended way to communicate changes from a child component back to its parent in Vue 3.')
-    },
-
-    testUpdate2 (receivedDog: Dog) {
-      this.updateChatlog(receivedDog, 'This is my second message!')
-    },
-
-    testLog () {
-      console.log(this.hiredDogs)
-    }
 
   }
 })
