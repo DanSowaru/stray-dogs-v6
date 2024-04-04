@@ -20,6 +20,7 @@
     <button @click="testUpdate">update hiredDogList</button>
     <button @click="testUpdate2">update hiredDogList message</button>
     <button @click="testLog">console.log()</button>
+
   </section>
 </template>
 
@@ -45,13 +46,11 @@ export default {
 
       openedActiveChat: false,
 
-      activeDog: new Dog(),
+      activeDog: new Dog(), // placeholder to be used in ActiveChat data
 
       activeKey: 0, // used to force update the ActiveChat Portrait
 
-      dogId: 0,
-
-      // TESTING
+      // ----------------------------TESTING
       jackRabbit: new Dog(
         '4',
         'Jack Rabbit',
@@ -114,3 +113,4 @@ export default {
   }
 }
 </script>
+@/data/Dog

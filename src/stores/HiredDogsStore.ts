@@ -1,20 +1,26 @@
 import { defineStore } from 'pinia'
 import { Dog } from '@/data/Dog'
-import { CHARACTER_LIST } from '@/data/DOG_LIST'
+import { hiredDogList } from '@/data/DOG_LIST'
 
 export const useHiredDogsStore = defineStore('hiredDogsStore', {
   state: () => ({
 
-    hiredDogs: CHARACTER_LIST
+    hiredDogs: hiredDogList,
+    dogId: 0
 
   }),
 
   getters: {
+
     unreadDogs () : number {
       // "this" refers to the STATE object above
       return this.hiredDogs.reduce((counter, dog) => {
         return dog.dogUnreadMessages ? ++counter : counter
       }, 0)
+    },
+
+    getHiredDogs () : Dog[] {
+      return this.hiredDogs
     }
   },
 
@@ -27,16 +33,35 @@ export const useHiredDogsStore = defineStore('hiredDogsStore', {
     // ///////////////////////////////////////////////////////////////
 
     isExistingDog (dogName: string) {
-      const newDogResult = this.hiredDogs.some(chatbox => chatbox.dogName === dogName)
+      const newDogResult = this.hiredDogs.some(dogChat => dogChat.dogName === dogName)
       return newDogResult
     },
 
-    updateChatlog (dogObject: Dog, newMessage: string) {
+    updateChatlog (dogObject : Dog, newMessage: string) {
       dogObject.newMessage(newMessage)
       if (!this.isExistingDog(dogObject.dogName)) {
         this.hiredDogs.push(dogObject)
       }
+    },
+
+    //             ///////////////////////////////////////////////////
+    //             /////////////////                         /////////
+    //             /////////////////        TEST AREA        /////////
+    //             /////////////////                         /////////
+    //             ///////////////////////////////////////////////////
+
+    testUpdate (receivedDog: Dog) {
+      this.updateChatlog(receivedDog, 'Is this thing turned on? lorem ipsum In this revised example, the ChildComponent emits an update-message event with the new message, and the ParentComponent listens for this event and updates its message data property accordingly. This is the recommended way to communicate changes from a child component back to its parent in Vue 3.')
+    },
+
+    testUpdate2 (receivedDog: Dog) {
+      this.updateChatlog(receivedDog, 'This is my second message!')
+    },
+
+    testLog () {
+      console.log(this.hiredDogs)
     }
+
   }
 })
 
