@@ -28,7 +28,7 @@
 import ChatblockComponent from '@/components/ChatblockComponent.vue'
 import ActiveChatComponent from '@/components/ActiveChatComponent.vue'
 
-import { Dog } from '@/assets/gamefiles/Dog.ts'
+import { Dog } from '@/data/Dog'
 import { useHiredDogsStore } from '@/stores/HiredDogsStore'
 
 export default {
@@ -53,6 +53,7 @@ export default {
 
       // TESTING
       jackRabbit: new Dog(
+        '4',
         'Jack Rabbit',
         'femrab2',
         86,
@@ -73,38 +74,6 @@ export default {
 
     /* eslint-disable prefer-const */
     /* eslint-disable no-tabs */
-
-    // ///////////////////////////////////////////////////////////////
-    // /////////////////                         /////////////////////
-    // /////////////////        Chat List        /////////////////////
-    // /////////////////                         /////////////////////
-    // ///////////////////////////////////////////////////////////////
-
-    isExistingDog (dogName) {
-      let newDogResult = this.hiredDogsStore.hiredDogs.some(chatbox => chatbox.dogName === dogName)
-      return newDogResult
-    },
-
-    generateNewId () {
-      this.dogId++
-      const isIdAlreadyUsed = this.hiredDogsStore.hiredDogs.some(chatbox => chatbox.dogId === this.dogId)
-      return isIdAlreadyUsed ? this.generateNewId() : this.dogId
-    },
-
-    updateChatlog (dogObject) {
-      if (!this.isExistingDog(dogObject.dogName)) {
-        let newId = this.generateNewId()
-        dogObject.dogId = +newId // parsing into Number
-        this.hiredDogsStore.hiredDogs.push(dogObject)
-      } else {
-        this.hiredDogsStore.hiredDogs.forEach(chatbox => {
-          if (chatbox.dogName === dogObject.dogName) {
-            // TODO push and update also dogMesages
-            chatbox.dogLastMessage = dogObject.dogLastMessage
-          }
-        })
-      }
-    },
 
     // ///////////////////////////////////////////////////////////////
     // /////////////////                         /////////////////////
@@ -129,12 +98,14 @@ export default {
     //             ///////////////////////////////////////////////////
 
     testUpdate () {
-      this.jackRabbit.newMessage('Is this thing turned on? lorem ipsum In this revised example, the ChildComponent emits an update-message event with the new message, and the ParentComponent listens for this event and updates its message data property accordingly. This is the recommended way to communicate changes from a child component back to its parent in Vue 3.')
-      this.updateChatlog(this.jackRabbit)
+      let testMessage = 'Is this thing turned on? lorem ipsum In this revised example, the ChildComponent emits an update-message event with the new message, and the ParentComponent listens for this event and updates its message data property accordingly. This is the recommended way to communicate changes from a child component back to its parent in Vue 3.'
+      this.hiredDogsStore.updateChatlog(this.jackRabbit, testMessage)
     },
 
     testUpdate2 () {
-      this.jackRabbit.newMessage('This is my second message!')
+      // updating here or in the tore array works
+      this.jackRabbit.newMessage('This message will also show regardless of sending any info to the Store!')
+      this.hiredDogsStore.updateChatlog(this.jackRabbit, 'blank message')
     },
 
     testLog () {

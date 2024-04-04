@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import { Dog } from '@/assets/gamefiles/Dog.js'
-import { CHARACTER_LIST } from '@/assets/gamefiles/DOG_LIST'
+import { Dog } from '@/data/Dog'
+import { CHARACTER_LIST } from '@/data/DOG_LIST'
 
 export const useHiredDogsStore = defineStore('hiredDogsStore', {
   state: () => ({
@@ -13,13 +13,30 @@ export const useHiredDogsStore = defineStore('hiredDogsStore', {
     unreadDogs () : number {
       // "this" refers to the STATE object above
       return this.hiredDogs.reduce((counter, dog) => {
-        return dog.dogUnreadMessages ? counter++ : counter
+        return dog.dogUnreadMessages ? ++counter : counter
       }, 0)
     }
   },
 
   actions: {
 
+    // ///////////////////////////////////////////////////////////////
+    // /////////////////                         /////////////////////
+    // /////////////////        Chat List        /////////////////////
+    // /////////////////                         /////////////////////
+    // ///////////////////////////////////////////////////////////////
+
+    isExistingDog (dogName: string) {
+      const newDogResult = this.hiredDogs.some(chatbox => chatbox.dogName === dogName)
+      return newDogResult
+    },
+
+    updateChatlog (dogObject: Dog, newMessage: string) {
+      dogObject.newMessage(newMessage)
+      if (!this.isExistingDog(dogObject.dogName)) {
+        this.hiredDogs.push(dogObject)
+      }
+    }
   }
 })
 

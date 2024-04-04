@@ -30,7 +30,7 @@
 
 <script>
 
-import { Dog } from '@/assets/gamefiles/Dog'
+import { Dog } from '@/data/Dog'
 
 export default {
   name: 'ActiveChatComponent',
