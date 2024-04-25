@@ -5,7 +5,7 @@ import { hiredDogList } from '@/data/DOG_LIST'
 export const useHiredDogsStore = defineStore('hiredDogsStore', {
   state: () => ({
 
-    hiredDogs: hiredDogList
+    hiredDogs: hiredDogList // TODO: Update hiredDogs to blank to be filled during gameplay
 
   }),
 
@@ -57,6 +57,32 @@ export const useHiredDogsStore = defineStore('hiredDogsStore', {
 
   }
 })
+
+// async addDogToDB () {
+//   const exampleDog = new Dog(
+//     '4',
+//     'Papa Dogs',
+//     'femrab2',
+//     86,
+//     10,
+//     76,
+//     8,
+//     90,
+//     18,
+//     4,
+//     48,
+//     60,
+//     21
+//   )
+
+//   const res = await fetch('http://localhost:3000/hiredDogs', {
+//     method: 'POST',
+//     headers: {
+//       'Content-type': 'application/json'
+//     },
+//     body: JSON.stringify(exampleDog)
+//   })
+// },
 
 // {
 //   dogId: '1',

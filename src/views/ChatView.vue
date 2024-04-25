@@ -17,10 +17,17 @@
       @close-active-chat="triggerActiveChat"
     />
 
+<div class="debug-menu">
+  <h3>
+    Debug Menu
+  </h3>
+  <div>
     <button @click="testUpdate">update hiredDogList</button>
     <button @click="testUpdate2">update hiredDogList message</button>
     <button @click="testLog">console.log()</button>
-    <button @click="testGetDogs">Fetch Dogs</button>
+    <button @click="hiredDogsStore.$reset">Reset hiredDogStore</button>
+  </div>
+</div>
 
   </section>
 </template>
@@ -51,7 +58,7 @@ export default {
 
       activeKey: 0, // used to force update the ActiveChat Portrait
 
-      // ----------------------------TESTING
+      // ---------------------------TESTING-------------------------------
       jackRabbit: new Dog(
         '4',
         'Jack Rabbit',
@@ -67,6 +74,7 @@ export default {
         60,
         21
       )
+      // ---------------------------TESTING-------------------------------
     }
   },
 
@@ -110,12 +118,7 @@ export default {
 
     testLog () {
       console.log(this.hiredDogsStore.hiredDogs)
-    },
-
-    testGetDogs () {
-      this.hiredDogsStore.getDBHiredDogs()
     }
   }
 }
 </script>
-@/data/Dog

@@ -1,54 +1,50 @@
 {
-    "hiredDogs" : [
-        {
-            "dogId" : "6",
-            "dogName" : "Pipsy Rett",
-            "dogPortrait" : "femrat12",
-            "dogPersonality" : {
-                "good" : 98,
-                "evil" : 4,
-                "smart" : 68,
-                "dumb" : 72
-            },
-            
-            "dogSkills" : {
-                "piloting" : 86,
-                "pistols" : 49,
-                "rifles" : 8,
-                "strategy" : 91,
-                "charisma" : 8,
-                "leadership" : 11
-            },
-            
-            "dogMessages" :  [],
-            "dogLastMessage" : "",
-            "dogUnreadMessages" : 0
-        },
-        {
-            "dogId" : "5",
-            "dogName" : "Tab Romboy",
-            "dogPortrait" : "femrab2",
-            "dogPersonality" : {
-                "good" : 89,
-                "evil" : 15,
-                "smart" : 87,
-                "dumb" : 50
-            },
-            
-            "dogSkills" : {
-                "piloting" : 65,
-                "pistols" : 76,
-                "rifles" : 36,
-                "strategy" : 90,
-                "charisma" : 32,
-                "leadership" : 10
-            },
-            
-            "dogMessages" :  [],
-            "dogLastMessage" : "",
-            "dogUnreadMessages" : 0
-        }
-    
-    ]
-
+  "hiredDogs": [
+    {
+      "dogId": "6",
+      "dogName": "Pipsy Rett",
+      "dogPortrait": "femrat12",
+      "dogPersonality": {
+        "good": 98,
+        "evil": 4,
+        "smart": 68,
+        "dumb": 72
+      },
+      "dogSkills": {
+        "piloting": 86,
+        "pistols": 49,
+        "rifles": 8,
+        "strategy": 91,
+        "charisma": 8,
+        "leadership": 11
+      },
+      "dogMessages": [],
+      "dogLastMessage": "",
+      "dogUnreadMessages": 0,
+      "id": "4251"
+    },
+    {
+      "dogId": "5",
+      "dogName": "Tab Romboy",
+      "dogPortrait": "femrab2",
+      "dogPersonality": {
+        "good": 89,
+        "evil": 15,
+        "smart": 87,
+        "dumb": 50
+      },
+      "dogSkills": {
+        "piloting": 65,
+        "pistols": 76,
+        "rifles": 36,
+        "strategy": 90,
+        "charisma": 32,
+        "leadership": 10
+      },
+      "dogMessages": [],
+      "dogLastMessage": "",
+      "dogUnreadMessages": 0,
+      "id": "9582"
+    }
+  ]
 }
