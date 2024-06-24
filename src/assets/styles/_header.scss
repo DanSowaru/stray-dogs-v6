@@ -1,7 +1,7 @@
 @import './variables.scss';
 
 #window-header {
-    background-color: $window-light-blue;
+    background-color: $window-header-color;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

@@ -1,7 +1,7 @@
 #game-footer {
     margin-top: auto;
     padding: 1vh 0;
-    background-color: $window-blue;
+    background-color: $game-footer-color;
 }
 
 #game-menu {
@@ -14,7 +14,7 @@
 }
 
 .footer-button {
-    background-color: $window-light-blue;
+    background-color: $footer-button-color;
     color: black;
     display: flex;
     justify-content: center;

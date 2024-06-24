@@ -9,11 +9,9 @@
 
 #game-window {
     flex-grow: 1;
-    background-color: $space-blue;
-    border: 1vw solid $window-light-blue;
+    background-color: $game-window-color;
+    border: 1vw solid $game-window-border-color;
     overflow: auto;
 }
 
-#window-border {
-    background-color: $window-blue;
-}
+#window-border {}

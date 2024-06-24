@@ -31,5 +31,6 @@ export default {
   components: {
     EngineComponent
   }
+  // TODO: add onClick on router-link buttons to go back from the ActiveChat view
 }
 </script>

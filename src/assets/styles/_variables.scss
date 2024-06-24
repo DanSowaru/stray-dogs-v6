@@ -10,13 +10,32 @@ $sd-bice-blue : #3570A3;
 $sd-midnight-green : #09373F; 
 $sd-aquamarine : #84FEBB; 
 $sd-turquoise : #51CCBB;
+$sd-light-turquoise: #c3f1eb;
+$sd-dark-turquoise: #265b54;
 
 $window-blue: #4D6CBE;
 $window-dark-blue: #414e72;
-$window-light-blue: #829adc;
+$window-light-blue: #78DCFF;
 $title-pink: #FF0187;
 $sun-orange: #FFB441;
 $space-blue: #1a2442;
+$space-black: #050019;
+
+$microsoft-window: #ced8d7;
+$microsoft-button: #a0a0a0;
+$microsoft-background: #292929;
+
+// Components colors
+$window-header-color: $sd-turquoise;
+$game-window-color: $space-black;
+$game-window-border-color: $sd-turquoise;
+$engine-view-slot-color: $sd-light-turquoise;
+$game-footer-color: $sd-turquoise;
+$footer-button-color: $sd-light-turquoise;
+$home-container-color: $sd-turquoise;
+
+$chatblock-color: $sd-light-turquoise;
+$active-chat-feed-balloon-color: $sd-aquamarine;
 
 
 // ---------------------------------------------------- BREAKPOINTS ------------------------------

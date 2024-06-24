@@ -2,13 +2,14 @@
     display: flex;
     flex-flow: row nowrap;
     padding: 2vw;
-    background-color: rgb(194, 220, 255);
+    background-color: $chatblock-color;
     margin: 2px 0;
 }
 
 .chat-block-portrait * {
     max-width: 64px;
     border-radius: 100%;
+    border: 2px solid $sd-dark-turquoise;
 }
 
 .chat-block-preview {

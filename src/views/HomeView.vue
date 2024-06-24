@@ -5,10 +5,10 @@
 
       <img id="splash_screen" src="@/assets/images/splash_screen.png" alt="stray dogs splash screen">
 
-      <h1>Welcome to Stray Dogs!</h1>
+      <h1 id="welcome-title">Welcome to Stray Dogs!</h1>
 
       <div id="login-form-container">
-        <button id="google-login">Google Placeholder</button>
+        <button id="google-login">Google Login Placeholder</button>
       </div>
 
     </div>

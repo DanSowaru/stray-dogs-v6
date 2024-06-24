@@ -1,28 +1,25 @@
 <template>
-  <div class="active-chat-container">
+  <div id="active-chat-container">
     <section id="active-chat-header">
       <div id="active-chat-portrait-container">
         <img id="active-chat-portrait" :src="dogPortrait" alt="Dog Portrait">
       </div>
       <div id="active-chat-name-container">
-        <h2 id="active-chat-name">
+        <h2 id="active-chat-name" class="white-text">
           {{ dogName }}
         </h2>
       </div>
     </section>
-    <div class="exit-button" @click="closeActiveChat">
-      <h1>
-        X
-      </h1>
-    </div>
-    <section id="active-chat-feed">
-      <div class="active-chat-feed-baloon" v-for="(chatInput, index) in activeDog.dogMessages" :key="index">
-        <p class="active-chat-feed-baloon-text">
+    <section id="active-chat-feed" ref="chatfeed">
+      <div class="active-chat-feed-balloon" v-for="(chatInput, index) in activeDog.dogMessages" :key="index">
+        <p class="active-chat-feed-balloon-text">
           {{ chatInput.message }}
         </p>
-
       </div>
     </section>
+    <div class="back-button" @click="closeActiveChat">
+      <img src="@/assets/images/icons/back_icon.png" alt="return to previous screen">
+    </div>
 
   </div>
 
@@ -112,4 +109,3 @@ export default {
   }
 }
 </script>
-@/data/Dog
