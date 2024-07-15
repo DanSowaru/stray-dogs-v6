@@ -3,7 +3,23 @@ import { Dog } from './Dog'
 
 // TODO: Create all the characters from the game
 
-export const hiredDogList : Dog[] = []
+export const allDogsList : Dog[] = []
+
+export const renato = new Dog(
+  '9999', // dogId
+  'Renato', // dogName
+  'renato', // dogPortrait
+  0, // dogPersonalityGood
+  0, // dogPersonalityEvil
+  0, // dogPersonalitySmart
+  0, // dogPersonalityDumb
+  0, // dogSkillPiloting
+  0, // dogSkillPistols
+  0, // dogSkillRifles
+  0, // dogSkillStrategy
+  0, // dogSkillCharisma
+  0 // dogSkillLeadership
+)
 
 // ------------------------------------------------ DOGS LIST -------------//
 let magpieLatte = new Dog(
@@ -60,7 +76,7 @@ monaMacaxx.dogLastMessage = 'I inserted this last message here'
 tabRomboy.dogLastMessage = 'This is also a testes message!'
 // --------------------------------------------- TEST AREA
 
-hiredDogList.push(
+allDogsList.push(
   monaMacaxx,
   magpieLatte,
   tabRomboy
@@ -82,5 +98,5 @@ let newDogName = new Dog(
   0 // dogSkillLeadership
 )
 
-hiredDogList.push(newDogName)
+allDogsList.push(newDogName)
 */

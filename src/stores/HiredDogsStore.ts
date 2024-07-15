@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia'
 import { Dog } from '@/data/Dog'
-import { hiredDogList } from '@/data/DOG_LIST'
+import { allDogsList, renato } from '@/data/DOG_LIST'
 
 export const useHiredDogsStore = defineStore('hiredDogsStore', {
   state: () => ({
-
-    hiredDogs: hiredDogList // TODO: Update hiredDogs to blank to be filled during gameplay
-
+    renatoRH: renato, // this takes the static Renato from the DOG_LIST and creates a REACTIVE renato
+    hiredDogs: [renato], // Placeholder to be substituted by the REACTIVE "renatoRH" at game start
+    allDogs: allDogsList,
+    playerMoney: 0,
+    totalMessages: 0
   }),
 
   getters: {
@@ -25,11 +27,11 @@ export const useHiredDogsStore = defineStore('hiredDogsStore', {
 
   actions: {
 
-    async getDBHiredDogs () {
-      const res = await fetch('http://localhost:3000/hiredDogs')
-      const data = await res.json()
-      this.hiredDogs = data
-    },
+    // async getDBHiredDogs () {
+    //   const res = await fetch('http://localhost:3000/hiredDogs')
+    //   const data = await res.json()
+    //   this.hiredDogs = data
+    // },
 
     // ///////////////////////////////////////////////////////////////
     // /////////////////                         /////////////////////
@@ -42,19 +44,82 @@ export const useHiredDogsStore = defineStore('hiredDogsStore', {
       return newDogResult
     },
 
-    updateChatlog (dogObject : Dog, newMessage: string) {
-      dogObject.newMessage(newMessage)
-      if (!this.isExistingDog(dogObject.dogName)) {
-        this.hiredDogs.push(dogObject)
+    dogSendMessage (dog: Dog, messages: string[]) {
+      // eslint-disable-next-line prefer-const
+      let timeDelay = 0
+
+      messages.forEach(message => {
+        timeDelay += this.randomTimer('messageTimer')
+        console.log('timedelay:' + timeDelay)
+        setTimeout(() => {
+          dog.newMessage(message)
+          if (!this.isExistingDog(dog.dogName)) {
+            this.hiredDogs.push(dog)
+          }
+        }, timeDelay)
+        this.totalMessages++
+      })
+    },
+
+    // ///////////////////////////////////////////////////////////////
+    // /////////////////                         /////////////////////
+    // /////////////////      NEW GAME START     /////////////////////
+    // /////////////////                         /////////////////////
+    // ///////////////////////////////////////////////////////////////
+
+    newGameStart () {
+      this.hiredDogs.splice(0, this.hiredDogs.length)
+      this.hiredDogs = [this.renatoRH]
+      this.playerMoney = 120
+      renato.dogMessages = []
+      renato.dogLastMessage = ''
+      this.triggerGameBeginning()
+    },
+
+    // ////////////////////////////////////////////////////////////////////////
+    // ////////                         ///////////////////////////////////////
+    // ////////       GAME ENGINE       ///////////////////////////////////////
+    // ////////                         ///////////////////////////////////////
+    // ////////////////////////////////////////////////////////////////////////
+
+    triggerGameBeginning () {
+      this.dogSendMessage(this.renatoRH, [
+        'Como voce ta, cachorro velho?',
+        'Deve ser muita coisa pra voce absorver em pouco tempo',
+        'Com voce tendo que fechar sua firma la, e agora isso...',
+        'Eu sei que voce no curte muito mexer nesses aparelho',
+        'mas fica tranquilo',
+        'pode deixar que eu vo te ensinar a usar!'
+      ])
+    },
+
+    // ///////////////////////////////////////////////////
+    // ////////     GAME RANDOMIZER     //////////////////
+    // ///////////////////////////////////////////////////
+
+    randomTimer (type: string) {
+      let timeValue = 0
+      switch (type) {
+        case 'messageTimer':
+          timeValue = 1000 * this.getRandomNumber(4, 6)
       }
+      return timeValue
+    },
+
+    // Returns a number inside the range of the MIN and MAX parameters passed
+    getRandomNumber (min: number, max: number) {
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    },
+
+    //             O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O
+    //             O-O-O-O-O-O-O-O-O                         O-O-O-O-O
+    //             O-O-O-O-O-O-O-O-O        TEST AREA        O-O-O-O-O
+    //             O-O-O-O-O-O-O-O-O                         O-O-O-O-O
+    //             O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O-O
+
+    testUpdate2 (jackRabbit: Dog) {
+      this.dogSendMessage(jackRabbit, ['Pinia Store test message!'])
     }
-
-    //             ///////////////////////////////////////////////////
-    //             /////////////////                         /////////
-    //             /////////////////        TEST AREA        /////////
-    //             /////////////////                         /////////
-    //             ///////////////////////////////////////////////////
-
   }
 })
 

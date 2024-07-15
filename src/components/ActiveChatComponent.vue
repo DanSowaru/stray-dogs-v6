@@ -17,8 +17,8 @@
         </p>
       </div>
     </section>
-    <div class="back-button" @click="closeActiveChat">
-      <img src="@/assets/images/icons/back_icon.png" alt="return to previous screen">
+    <div class="active-chat-back-button" @click="closeActiveChat">
+      <img id="active-chat-back-button-img" src="@/assets/images/icons/back_icon.png" alt="return to previous screen">
     </div>
 
   </div>

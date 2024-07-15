@@ -4,6 +4,10 @@
     justify-content: flex-start;
     align-items: flex-start;    
 }
+#active-chat-name {
+    font-size: 2.5em;
+
+}
 #active-chat-portrait {
     max-width: 86px;
     border-radius: 100%;
@@ -15,13 +19,12 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: 20vh;
+    height: 15vh;
 
     background-color: $space-black;
     position: sticky;
     top: 0;
     z-index: 1;
-    
 }
 
 .active-chat-feed-balloon {
@@ -42,4 +45,9 @@
     margin-top: 20vh;
     max-height: 80vh;
     min-height: 80vh;
+}
+
+.active-chat-back-button {
+    float: right;
+    margin: 1vh;
 }

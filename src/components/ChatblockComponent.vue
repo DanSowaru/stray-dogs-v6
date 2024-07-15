@@ -28,8 +28,6 @@ export default {
 
   data () {
     return {
-      // TODO: Implement default fallback portrait
-      // placeholderPortrait: require('@/assets/images/portraits/unknown.png'),
       dogPortrait: require('@/assets/images/portraits/' + this.chatPreviewProp.dogPortrait + '.png')
     }
   },

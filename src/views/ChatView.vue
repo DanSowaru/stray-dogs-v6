@@ -13,7 +13,7 @@
     <ActiveChatComponent
       v-show="openedActiveChat"
       :activeDog="activeDog"
-      :key="activeKey"
+      :key="activeDog.dogId"
       @close-active-chat="triggerActiveChat"
     />
 
@@ -26,6 +26,7 @@
     <button @click="testUpdate2">update hiredDogList message</button>
     <button @click="testLog">console.log()</button>
     <button @click="hiredDogsStore.$reset">Reset hiredDogStore</button>
+    <button @click="hiredDogsStore.newGameStart">Restart Game</button>
   </div>
 </div>
 
@@ -90,8 +91,9 @@ export default {
     // ///////////////////////////////////////////////////////////////
 
     openActiveChatComponent (dogListUnit) {
-      this.activeKey = dogListUnit.dogId
+      this.activeKey = dogListUnit.dogId + dogListUnit.dogLastMessage
       this.activeDog = dogListUnit
+      this.activeDog.dogUnreadMessages = 0
       this.triggerActiveChat(true)
     },
 
@@ -106,14 +108,13 @@ export default {
     //             ///////////////////////////////////////////////////
 
     testUpdate () {
-      let testMessage = 'Is this thing turned on? lorem ipsum In this revised example, the ChildComponent emits an update-message event with the new message, and the ParentComponent listens for this event and updates its message data property accordingly. This is the recommended way to communicate changes from a child component back to its parent in Vue 3.'
-      this.hiredDogsStore.updateChatlog(this.jackRabbit, testMessage)
-    },
-
-    testUpdate2 () {
-      // updating here or in the tore array works
+      // updating here or in the store array works
       this.jackRabbit.newMessage('This message will also show regardless of sending any info to the Store!')
-      this.hiredDogsStore.updateChatlog(this.jackRabbit, 'blank message')
+      let testMessage = 'Is this thing turned on? lorem ipsum In this revised example, the ChildComponent emits an update-message event with the new message, and the ParentComponent listens for this event and updates its message data property accordingly. This is the recommended way to communicate changes from a child component back to its parent in Vue 3.'
+      this.hiredDogsStore.dogSendMessage(this.jackRabbit, [testMessage])
+    },
+    testUpdate2 () {
+      this.hiredDogsStore.testUpdate2(this.jackRabbit)
     },
 
     testLog () {

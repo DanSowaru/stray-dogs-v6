@@ -37,7 +37,7 @@ export default defineComponent(
 
     data () {
       return {
-        playerMoney: 50.00000,
+        playerMoney: useHiredDogsStore().playerMoney,
         hiredDogs: useHiredDogsStore()
       }
     },
@@ -55,18 +55,7 @@ export default defineComponent(
       }
     },
 
-    methods: {
-
-      // TODO: Create a Game Events STORE, not component
-
-      rollRandomChance (max: number) {
-        return Math.random() * (max - 0) + 1
-      },
-
-      randomEventTrigger () {
-        // TODO: Implement event trigger
-      }
-    }
+    methods: {}
 
   }
 )
