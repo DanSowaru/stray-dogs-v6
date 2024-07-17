@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkstray_dogs_v6"]=self["webpackChunkstray_dogs_v6"]||[]).push([[594],{5609:function(n,s,t){t.r(s),t.d(s,{default:function(){return f}});var u=t(6768);const a={class:"about"},r=(0,u.Lk)("h1",null,"This is an about page",-1),e=[r];function c(n,s){return(0,u.uX)(),(0,u.CE)("div",a,e)}var o=t(1241);const i={},d=(0,o.A)(i,[["render",c]]);var f=d}}]);
+//# sourceMappingURL=about.81ac6110.js.map

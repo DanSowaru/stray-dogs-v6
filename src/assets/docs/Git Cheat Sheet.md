@@ -15,3 +15,12 @@
         git reset --hard HEAD~1
         or
         git reset --soft HEAD~1
+
+### Branch names
+
+* feature/add-user-authentication
+* bugfix/fix-header-css
+* hotfix/security-vulnerability-patch
+* release/v1.3.0
+* improvement/refactor-database-layer
+* experiment/implement-new-ui
