@@ -45,12 +45,9 @@ export const useHiredDogsStore = defineStore('hiredDogsStore', {
     },
 
     dogSendMessage (dog: Dog, messages: string[]) {
-      // eslint-disable-next-line prefer-const
       let timeDelay = 0
-
       messages.forEach(message => {
         timeDelay += this.randomTimer('messageTimer')
-        console.log('timedelay:' + timeDelay)
         setTimeout(() => {
           dog.newMessage(message)
           if (!this.isExistingDog(dog.dogName)) {
@@ -84,12 +81,13 @@ export const useHiredDogsStore = defineStore('hiredDogsStore', {
 
     triggerGameBeginning () {
       this.dogSendMessage(this.renatoRH, [
-        'Como voce ta, cachorro velho?',
-        'Deve ser muita coisa pra voce absorver em pouco tempo',
-        'Com voce tendo que fechar sua firma la, e agora isso...',
-        'Eu sei que voce no curte muito mexer nesses aparelho',
+        'Alô!',
+        'Como você tá, cachorro velho?',
+        'Deve ser muita coisa pra você absorver em pouco tempo',
+        'Com você tendo que fechar sua firma lá, e agora isso...',
+        'Eu sei que você não curte muito mexer nesses aparelho',
         'mas fica tranquilo',
-        'pode deixar que eu vo te ensinar a usar!'
+        'pode deixar que eu vou te ensinar a usar!'
       ])
     },
 
